@@ -1,0 +1,4 @@
+*.sarif
+_codeql_detected_source_root
+db
+ub
