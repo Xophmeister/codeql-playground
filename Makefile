@@ -10,9 +10,15 @@ CODEQL_ARTEFACTS := ${CODEQL_DB} _codeql_detected_source_root
 all: ${BIN}
 
 ${BIN}: ${SRC}
-	gcc -o $@ $^
+	${CC} -o $@ $^
 
-analyse: ${ANALYSIS}
+analyse-codeql: ${ANALYSIS}
+
+analyse-gcc: ${SRC}
+	gcc -fanalyzer $^
+
+analyse-clang: ${SRC}
+	scan-build make
 
 ${ANALYSIS}: ${CODEQL_DB}
 	codeql database analyze $< \
@@ -26,4 +32,4 @@ ${CODEQL_DB}: ${SRC}
 clean:
 	rm -rf ${BIN} ${ANALYSIS} ${CODEQL_ARTEFACTS}
 
-.PHONEY: all analyse clean
+.PHONEY: all analyse-codeql analyse-gcc analyse-clang clean

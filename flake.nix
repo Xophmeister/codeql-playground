@@ -15,9 +15,10 @@
       fhs = pkgs.buildFHSUserEnv {
         name = "codeql";
         targetPkgs = pkgs: with pkgs; [
+          clang-analyzer
           codeql
-          gnumake
           gcc
+          gnumake
         ];
       };
 

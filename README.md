@@ -97,3 +97,12 @@ ub.c:22:5: warning: double-‘free’ of ‘buffer’ [CWE-415] [-Wanalyzer-doub
     |      |     (12) second ‘free’ here; first ‘free’ was at (9)
     |
 ```
+
+Clang's `scan-build` can also detect the null dereference:
+
+```
+ub.c:10:20: warning: Dereference of null pointer (loaded from variable 'buffer') [core.NullDereference]
+    printf("%d\n", *buffer);
+                   ^~~~~~~
+1 warning generated.
+```
