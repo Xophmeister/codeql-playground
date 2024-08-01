@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char** argv) {
@@ -5,6 +6,9 @@ int main(int argc, char** argv) {
   int* buffer = (int*)malloc(size * sizeof(int));
 
   if (buffer == NULL) {
+    /* Null-pointer dereference */
+    printf("%d\n", *buffer);
+
     exit(1);
   }
 
