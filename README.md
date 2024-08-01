@@ -1,7 +1,8 @@
 # CodeQL Playground
 
-Let's write some [dodgy C code](/ub.c) to see what CodeQL, with the
-default C/C++ queries, can catch.
+Let's write some [dodgy C code](/ub.c) to see what
+[CodeQL](https://codeql.github.com), with the default C/C++ queries, can
+catch.
 
 ## Results
 
